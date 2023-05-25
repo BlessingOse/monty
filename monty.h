@@ -47,7 +47,7 @@ extern glob_t glob;
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO ALX school project
  */
 typedef struct instruction_s
 {
@@ -55,12 +55,12 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-char *_preallot(char *ptr, unsigned int old_size, unsigned int new_size);
-ssize_t fet_stdin(char **lineptr, int file);
+char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
+ssize_t getstdin(char **lineptr, int file);
 char  *clean_pline(char *cont);
-void P_push(stack_t **head, unsigned int pline);
-void P_pall(stack_t **head, unsigned int pline);
-void P_pint(stack_t **head, unsigned int pline);
+void P_push(stack_t **head, unsigned int number);
+void P_pall(stack_t **head, unsigned int number);
+void P_pint(stack_t **head, unsigned int number);
 int X_cute(char *cont, stack_t **head, unsigned int pline, FILE *file);
 void empt_stack(stack_t *head);
 void P_pop(stack_t **head, unsigned int pline);
