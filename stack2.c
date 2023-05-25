@@ -14,8 +14,8 @@ void P_pop(stack_t **head, unsigned int pline)
 	if (*head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", pline);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(glob.file);
+		free(glob.cont);
 		empt_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -61,28 +61,28 @@ void P_push(stack_t **head, unsigned int pline)
 {
 	int n, j = 0, flag = 0;
 
-	if (bus.arg)
+	if (glob.arg)
 	{
-		if (bus.arg[0] == '-')
+		if (glob.arg[0] == '-')
 			j++;
-		for (; bus.arg[j] != '\0'; j++)
+		for (; glob.arg[j] != '\0'; j++)
 		{
-			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+			if (glob.arg[j] > 57 || glob.arg[j] < 48)
 				flag = 1; }
 		if (flag == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", pline);
-			fclose(bus.file);
-			free(bus.content);
+			fclose(glob.file);
+			free(glob.cont);
 			empt_stack(*head);
 			exit(EXIT_FAILURE); }}
 	else
 	{ fprintf(stderr, "L%d: usage: push integer\n", pline);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(glob.file);
+		free(glob.cont);
 		empt_stack(*head);
 		exit(EXIT_FAILURE); }
-	n = atoi(bus.arg);
-	if (bus.lifi == 0)
+	n = atoi(glob.arg);
+	if (glob.lifi == 0)
 		incnode(head, n);
 	else
 		incqueue(head, n);

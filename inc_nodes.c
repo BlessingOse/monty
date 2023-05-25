@@ -21,8 +21,8 @@ void P_add(stack_t **head, unsigned int pline)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", pline);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(glob.file);
+		free(glob.cont);
 		empt_stack(*head);
 		exit(EXIT_FAILURE);
 	}

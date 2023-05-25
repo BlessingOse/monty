@@ -38,7 +38,7 @@ void P_queue(stack_t **head, unsigned int pline)
 {
 	(void)head;
 	(void)pline;
-	bus.lifi = 1;
+	glob.lifi = 1;
 }
 
 /**

@@ -26,21 +26,21 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 /**
- * struct bus_s - variables -args, file, line content
+ * struct glob_s - variables -args, file, line content
  * @arg: value
  * @file: pointer to monty file
- * @content: line content
+ * @cont: line content
  * @lifi: flag change stack <-> queue
  * Description: carries values through the program
  */
-typedef struct bus_s
+typedef struct glob_s
 {
 	char *arg;
 	FILE *file;
-	char *content;
+	char *cont;
 	int lifi;
-}  bus_t;
-extern bus_t bus;
+}  glob_t;
+extern glob_t glob;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -57,11 +57,11 @@ typedef struct instruction_s
 
 char *_preallot(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t fet_stdin(char **lineptr, int file);
-char  *clean_pline(char *content);
-void P_push(stack_t **head, unsigned int pnumber);
-void P_pall(stack_t **head, unsigned int pnumber);
-void P_pint(stack_t **head, unsigned int pnumber);
-int X_cute(char *content, stack_t **head, unsigned int counter, FILE *file);
+char  *clean_pline(char *cont);
+void P_push(stack_t **head, unsigned int pline);
+void P_pall(stack_t **head, unsigned int pline);
+void P_pint(stack_t **head, unsigned int pline);
+int X_cute(char *cont, stack_t **head, unsigned int pline, FILE *file);
 void empt_stack(stack_t *head);
 void P_pop(stack_t **head, unsigned int pline);
 void P_swap(stack_t **head, unsigned int pline);

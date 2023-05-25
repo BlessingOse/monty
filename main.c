@@ -2,7 +2,7 @@
 #include <stdio.h>
 #define  _GNU_SOURCE
 
-bus_t bus = {NULL, NULL, NULL, 0};
+glob_t glob = {NULL, NULL, NULL, 0};
 
 /**
 * main - monty code interpreter
@@ -13,7 +13,7 @@ bus_t bus = {NULL, NULL, NULL, 0};
 
 int main(int argc, char *argv[])
 {
-	char *content;
+	char *cont;
 	FILE *file;
 	size_t size = 0;
 	ssize_t read_line = 1;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
-	bus.file = file;
+	glob.file = file;
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -34,15 +34,15 @@ int main(int argc, char *argv[])
 	}
 	while (read_line > 0)
 	{
-		content = NULL;
-		read_line = getline(&content, &size, file);
-		bus.content = content;
+		cont = NULL;
+		read_line = getline(&cont, &size, file);
+		glob.cont = cont;
 		pline++;
 		if (read_line > 0)
 		{
-			X_cute(content, &stack, pline, file);
+			X_cute(cont, &stack, pline, file);
 		}
-		free(content);
+		free(cont);
 	}
 	empt_stack(stack);
 	fclose(file);

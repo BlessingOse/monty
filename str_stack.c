@@ -11,7 +11,7 @@ void P_stack(stack_t **head, unsigned int pline)
 {
 	(void)head;
 	(void)pline;
-	bus.lifi = 0;
+	glob.lifi = 0;
 }
 
 /**
@@ -32,8 +32,8 @@ void P_sub(stack_t **head, unsigned int pline)
 	if (nodes < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", pline);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(glob.file);
+		free(glob.cont);
 		empt_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -65,8 +65,8 @@ void P_swap(stack_t **head, unsigned int pline)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", pline);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(glob.file);
+		free(glob.cont);
 		empt_stack(*head);
 		exit(EXIT_FAILURE);
 	}

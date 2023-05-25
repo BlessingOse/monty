@@ -39,8 +39,8 @@ void P_mul(stack_t **head, unsigned int pline)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", pline);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(glob.file);
+		free(glob.cont);
 		empt_stack(*head);
 		exit(EXIT_FAILURE);
 	}
